@@ -11,10 +11,18 @@ class Storage {
         this.appDir = os.homedir() + '/.' +storageName + '/';
     }
 
+    /**
+     * Get the storage object
+     * @return {any}
+     */
     getStorage() {
         return this.getStorageFile('storage');
     }
 
+    /**
+     * get the storage object of a specific file
+     * @param {string} fileName 
+     */
     getStorageFile(fileName) {
         fileName = fileName.replace('.json', '');
         if(!this._storageExists() && !this._storageFileExists(fileName)) {
@@ -24,10 +32,19 @@ class Storage {
         return JSON.parse(fs.readFileSync(this.appDir+fileName+'.json', 'utf-8'));
     }
 
+    /**
+     * Write an object to the storage file
+     * @param {any} object 
+     * @param {string} fileName 
+     */
     writeStorageFile(object, fileName) {
         this._createFile(fileName, object);
     }
 
+    /**
+     * Write an object to the storage file
+     * @param {any} object 
+     */
     writeStorage(object) {
         this._createFile('storage', object);
     }
@@ -49,8 +66,5 @@ class Storage {
     }
 }
 
-const s = new Storage('wutang');
-s.writeStorage({hotdog: true});
-console.log(s.getStorage());
 
 module.exports = Storage;
