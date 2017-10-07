@@ -1,23 +1,23 @@
 const fs = require('fs');
 const os = require('os');
 
-class storage {
+class Storage {
 
     /**
      * 
      * @param {string} storageName 
      */
-    cosntructor(storageName) {
+    constructor(storageName) {
         this.appDir = os.homedir() + '/.' +storageName + '/';
     }
 
     getStorage() {
-        this.getStorageFile('storage');
+        return this.getStorageFile('storage');
     }
 
     getStorageFile(fileName) {
         fileName = fileName.replace('.json', '');
-        if(!this._storageExists() || this._storageFileExists(fileName)) {
+        if(!this._storageExists() && !this._storageFileExists(fileName)) {
             this._createFile(fileName, {});
         }
 
@@ -29,7 +29,7 @@ class storage {
     }
 
     writeStorage(object) {
-        this_createFile('storage', object);
+        this._createFile('storage', object);
     }
 
     _storageExists() {
@@ -49,4 +49,8 @@ class storage {
     }
 }
 
-module.exports = storage;
+const s = new Storage('wutang');
+s.writeStorage({hotdog: true});
+console.log(s.getStorage());
+
+module.exports = Storage;
