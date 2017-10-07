@@ -1,0 +1,24 @@
+{
+  "name": "fun-storage",
+  "version": "1.0.0",
+  "description": "A very basic json storage module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiricon/fun-storage.git"
+  },
+  "keywords": [
+    "json",
+    "storage",
+    "settings"
+  ],
+  "author": "Dominic Valenciana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kiricon/fun-storage/issues"
+  },
+  "homepage": "https://github.com/Kiricon/fun-storage#readme"
+}
